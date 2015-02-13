@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Generator DEMO 1</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="../lib/console-log/index.js"></script>
+<script src="./lib/demo/index.js"></script>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700">
+<link rel="stylesheet" href="../lib/console-log/style.css">
+</head>
+<body>
+
+<pre class="code">function* fetchUserTodoList (name) {
+  var id = yield fetchTodoListId(name);
+}
+var generator = fetchUserTodoList('ykhs');
+var generatoResult = generator.next();
+
+<span class="strong">console.log(generatoResult);</span></pre>
+
+<button id="exec">fetchUserTodoList('ykhs')</button>
+<pre class="console"></pre>
+
+<script>
+  function* fetchUserTodoList (name) {
+    var id = yield fetchTodoListId(name);
+  }
+</script>
+
+<script>
+  var generator = fetchUserTodoList('ykhs');
+
+  $(function () {
+    $('#exec').click(function () {
+      var generatoResult = generator.next();
+      console.log(generatoResult);
+    });
+  });
+</script>
+</body>
+</html>

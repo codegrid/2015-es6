@@ -1,0 +1,23 @@
+.code {
+  padding: 10px;
+  overflow: auto;
+  font-size: 15px;
+  line-height: 1.5;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.code .strong {
+  color: #df5000;
+}
+
+.console {
+  padding: 10px;
+  font-family: 'Ubuntu Mono', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #FFF;
+  background: #333;
+  border: 1px solid #999;
+  border-radius: 3px;
+}
