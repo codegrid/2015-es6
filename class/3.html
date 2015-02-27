@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Class DEMO 3</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700">
+<link rel="stylesheet" href="../lib/console-log/style.css">
+</head>
+<body>
+
+<pre class="code">(function () {
+  'use strict';
+
+  class Organization {
+    constructor(name) {
+      this.name = name;
+    }
+    get nameUpperCase() {
+      return this.name.toUpperCase();
+    }
+  }
+
+  var pixelgrid = new Organization("PixelGrid");
+  print(pixelgrid.nameUpperCase);
+
+})();</pre>
+
+<button id="exec">Run</button>
+<pre class="console"></pre>
+
+<script>
+function print (str) {
+  str += '\n';
+  var node = document.createTextNode(str);
+  document.querySelector('.console').appendChild(node);
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  try {
+    eval([
+      '(function () {',
+      '  "use strict";',
+      '  class Organization {',
+      '    constructor(name) {',
+      '      this.name = name;',
+      '    }',
+      '    get nameUpperCase() {',
+      '      return this.name.toUpperCase();',
+      '    }',
+      '  }',
+      '  $("#exec").click(function () {',
+      '    var pixelgrid = new Organization("PixelGrid");',
+      '    print(pixelgrid.nameUpperCase);',
+      '  });',
+      '})()'
+    ].join(''));
+  } catch(e) {
+    $('#exec').hide();
+    print('お使いのブラウザではまだこの機能は実装されていません。');
+  }
+})();
+</script>
+
+</body>
+</html>
