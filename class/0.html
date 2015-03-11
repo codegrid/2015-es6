@@ -3,29 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Class DEMO 3</title>
+<title>Class DEMO 0</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700">
 <link rel="stylesheet" href="../lib/console-log/style.css">
 </head>
 <body>
 
-<pre class="code">(function () {
-  'use strict';
+<pre class="code">
+function Organization(name) {
+  this.name = name;
+}
 
-  class Organization {
-    constructor(name) {
-      this.name = name;
-    }
-    get nameUpperCase() {
-      return this.name.toUpperCase();
-    }
-  }
+Organization.prototype.greet = function() {
+  return 'Hello! We are ' + this.name + '!!';
+};
 
-  var pixelgrid = new Organization("PixelGrid");
-  console.log(pixelgrid.nameUpperCase);
-
-})();</pre>
+var pixelgrid = new Organization('PixelGrid');
+console.log(pixelgrid.greet());</pre>
 
 <button id="exec">Run</button>
 <pre class="console"></pre>
@@ -45,20 +40,17 @@ function print (str) {
   try {
     eval([
       '(function () {',
-      '  "use strict";',
-      '  class Organization {',
-      '    constructor(name) {',
-      '      this.name = name;',
-      '    }',
-      '    get nameUpperCase() {',
-      '      return this.name.toUpperCase();',
-      '    }',
-      '  }',
+      ' function Organization(name) {',
+      ' this.name = name;',
+      ' }',
+      ' Organization.prototype.greet = function() {',
+      ' return "Hello! We are" + this.name + "!!";',
+      ' };',
       '  $("#exec").click(function () {',
-      '    var pixelgrid = new Organization("PixelGrid");',
-      '    print(pixelgrid.nameUpperCase);',
+      ' var pixelgrid = new Organization("PixelGrid");',
+      ' print(pixelgrid.greet());',
       '  });',
-      '})()'
+      '})()' 
     ].join(''));
   } catch(e) {
     $('#exec').hide();
